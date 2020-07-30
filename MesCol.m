@@ -36,7 +36,12 @@ classdef MesCol < handle
         'StopBits', obj.StopBits, ...
         'Parity', obj.Parity, ...
         'BaudRate', obj.BaudRate);
-      obj.sopen();
+      
+      % Give false to the 3rd argment not to open SerObj in the constructor
+      % mesCol = MesCol('COM1', 9600, false);
+      if nargin < 3 || nargin{3}
+        obj.sopen();
+      end
     end
     
     function SetRemoteOn(obj)
