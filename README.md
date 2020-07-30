@@ -1,6 +1,6 @@
-# MesCal
+# MesCol
 
-MesCal is a handle class which provides communication for CS-1000 (KONICA MINOLTA).
+MesCol is a handle class which provides communication for CS-1000 (KONICA MINOLTA).
 This class is just a simple wrapper for COMMAND via RS-232.
 
 ## Usage 
