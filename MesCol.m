@@ -39,7 +39,7 @@ classdef MesCol < handle
       
       % Give false to the 3rd argment not to open SerObj in the constructor
       % mesCol = MesCol('COM1', 9600, false);
-      if nargin < 3 || nargin{3}
+      if nargin < 3 || varargin{3}
         obj.sopen();
       end
     end
