@@ -9,13 +9,14 @@ mesStatus = mesCol.GetMesStatus();
 
 
 %% Set drawing parameters
-lins = (17:17:255)';
+LIN = (17:17:255)';
+ZER = zeros(size(LIN));
 
 ColK = [000, 000, 000];
-KtoR = [lins, zero, zero];
-KtoG = [zero, lins, zero];
-KtoB = [zero, zero, lins];
-KtoW = [lins, lins, lins];
+KtoR = [LIN, ZER, ZER];
+KtoG = [ZER, LIN, ZER];
+KtoB = [ZER, ZER, LIN];
+KtoW = [LIN, LIN, LIN];
 
 ColorMap = [ColK; KtoR; KtoG; KtoB; KtoW];
 NofColor = size(ColorMap, 1);
