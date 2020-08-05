@@ -63,15 +63,15 @@ for ti = 1:NofTrial
     colSpec = mesCol.GetColSpec(0);
     specFile = fopen(specFileName, 'a');
     fprintf(specFile, '%3d, %3d, %3d', ColorMap(ci, :));
-    fprintf(specFile, ', %E', ColSpec);
-    fprintf(specFile, newline);
+    fprintf(specFile, ', %E', colSpec);
+    fprintf(specFile, '\n');
     fclose(specFile);
     
     colProp = mesCol.GetColProp(0);
     propFile = fopen(propFileName, 'a');
     fprintf(propFile, '%3d, %3d, %3d', ColorMap(ci, :));
     fprintf(propFile, ', %f', [colProp{:}]);
-    fprintf(specFile, newline);
+    fprintf(specFile, '\n');
     fclose(propFile);
     
     fprintf('# M %8d  : %8.0f min, [%3d, %3d, %3d] -> Lv: %8.3f, x: %6.4f, y: %6.4f\n', cnt, toc/60, ColorMap(ci, :), colProp{2}, colProp{6}, colProp{7});

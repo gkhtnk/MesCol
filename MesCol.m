@@ -140,7 +140,7 @@ classdef MesCol < handle
       fprintf(obj.serObj, sprintf('BDR,1,%d,0', fov));
       [~, info] = obj.CheckReply();
       fprintf(obj.serObj, '&');
-      data = cellfun(@str2double, strsplit(fgetl(obj.serObj), ','), 'UniformOutput', false);
+      data = cellfun(@str2double, regexp(fgetl(obj.serObj), ',', 'split'), 'UniformOutput', false);
     end
   end
   
@@ -163,11 +163,11 @@ classdef MesCol < handle
     function errFunc(obj, status)
       obj.err = status;
       obj.delete();
-      error(sprintf('MESCOL:%s', status), 'Error in MesCol, CODE %s\n', status);
+      error(sprintf('MESCOL:%s', status), 'Error in MesCol CODE %s, Read the manual document for more detail.\n', status);
     end
     
     function [status, data] = CheckReply(obj)
-      str = strsplit(fgetl(obj.serObj), ',');
+      str = regexp(fgetl(obj.serObj), ',', 'split');
       status = str{1};
       if ~strcmp(status, 'OK')
         obj.errFunc(status);
